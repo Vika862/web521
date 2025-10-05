@@ -23,5 +23,12 @@ $students = [
     ['name' => 'Jhon', 'age' => 20]
 ];
 foreach($students as $nameStudents){
-  echo $nameStudents['name'] . " ";
+  echo $nameStudents['name'] . " " ;
 };
+//4
+
+$numbers = [1,2,3,4,5,6,7,8,9];
+$summ =array_reduce($numbers,
+  function($acc, $curr){
+  return $acc+$curr;}, 0);
+  echo "</br>", $summ;
