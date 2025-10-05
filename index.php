@@ -16,3 +16,12 @@ $fruitsB = array_filter($fruits, function($fruit){
 });
 
 echo implode(",", $fruitsB), "</br>";
+//3
+$students = [
+    ['name' => 'Alice', 'age' => 21],
+    ['name' => 'Bob', 'age' => 22], 
+    ['name' => 'Jhon', 'age' => 20]
+];
+foreach($students as $nameStudents){
+  echo $nameStudents['name'] . " ";
+};
