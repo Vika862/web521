@@ -46,6 +46,26 @@ $needBook = array_find($books, function($book) {
 });
 
 echo "</br>", implode($needBook) ;
-//6
-$nums = [1,3,5,7,9];
-// не нашла инфы про метод some
+//6 и 7
+
+// не нашла инфы про методы some  и every
+// 8
+$infoSale =[
+  ['date' => '2025-10-1', 'item' => 'apple', 'amount' => 100 ],
+  ['date' => '2025-10-2', 'item' => 'banana', 'amount' => 150],
+  ['date' => '2025-10-3', 'item' => 'orange', 'amount' => 200],
+  ['date' => '2025-10-4', 'item' => 'apple', 'amount' => 50],
+  ['date' => '2025-10-5', 'item' => 'banana', 'amount' => 75],
+  ['date' => '2025-10-6', 'item' => 'orange', 'amount' => 125]
+];
+
+$groupedByItem = array_reduce($infoSale, function($accum, $sale) {
+    $accum[$sale['item']][] = $sale['amount'];
+    return $accum;
+}, []);
+
+$result = array_map(function($amounts) {
+    return array_sum($amounts);
+}, $groupedByItem);
+
+echo '</br>', implode(',', $result) ;
