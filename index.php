@@ -28,7 +28,24 @@ foreach($students as $nameStudents){
 //4
 
 $numbers = [1,2,3,4,5,6,7,8,9];
+
 $summ =array_reduce($numbers,
   function($acc, $curr){
   return $acc+$curr;}, 0);
+
   echo "</br>", $summ;
+//5
+$books = [
+  ['title' => '1984', 'autor' => 'George Orwell'],
+  ['title' => 'To Kill a Mockingbird', 'autor' => 'Harper Lee'],
+  ['title' => 'Metro 2033', 'autor' => 'Dmitry Gluhovskiy']
+];
+
+$needBook = array_find($books, function($book){
+  return $book['title'] === '1984';
+});
+
+echo implode($needBook);
+// у меня почему то не выводится результат мнет говорит что версия пхп маленькаы
+// а как обновить хз
+
