@@ -41,11 +41,11 @@ $books = [
   ['title' => 'Metro 2033', 'autor' => 'Dmitry Gluhovskiy']
 ];
 
-$needBook = array_find($books, function($book){
+$needBook = array_find($books, function($book) {
   return $book['title'] === '1984';
 });
 
-echo implode($needBook);
-// у меня почему то не выводится результат мнет говорит что версия пхп маленькаы
-// а как обновить хз
-
+echo "</br>", implode($needBook) ;
+//6
+$nums = [1,3,5,7,9];
+// не нашла инфы про метод some
