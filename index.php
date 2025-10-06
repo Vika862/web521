@@ -104,3 +104,4 @@ foreach($taskForDay as $task) {
     echo $task['task'] . " - Status: " . $task['status'] . ", Priority: " . $task['priority'] . "</br>";
   }
 }
+/// я не понимаю что необходимо выполнить в работе с dom-элементом
