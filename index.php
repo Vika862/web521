@@ -47,7 +47,6 @@ $needBook = array_find($books, function($book) {
 
 echo "</br>", implode($needBook) ;
 //6 и 7
-
 // не нашла инфы про методы some  и every
 // 8
 $infoSale =[
@@ -68,4 +67,40 @@ $result = array_map(function($amounts) {
     return array_sum($amounts);
 }, $groupedByItem);
 
-echo '</br>', implode(',', $result) ;
+echo '</br>', implode(',', $result), '</br>' ;
+//9
+$users = [
+  ['name' => 'Alice', 'age' => 28, 'isSubscribed' => 'true'],
+    ['name' => 'Bob', 'age' => 29,  'isSubscribed' => 'false'], 
+    ['name' => 'Jhon', 'age' => 30, 'isSubscribed' => 'true'],
+    ['name' => 'Natali', 'age' => 32, 'isSubscribed' => 'true'],
+    ['name' => 'Veronika', 'age' => 41,  'isSubscribed' => 'false'], 
+    ['name' => 'Alex', 'age' => 19, 'isSubscribed' => 'true'],
+    ['name' => 'Maxs', 'age' => 26, 'isSubscribed' => 'true'],
+    ['name' => 'Oleg', 'age' => 44,  'isSubscribed' => 'false'], 
+    ['name' => 'Maik', 'age' => 51, 'isSubscribed' => 'true']
+];
+
+$wantedUsers = array_filter($users, function($user){
+  return $user['age']>= 30 || $user['isSubscribed']===true;
+});
+
+$userStrings = array_map(function($user) {
+    return $user['name'] . ' (' . $user['age'] . ')';
+}, $wantedUsers);
+echo '</br>', implode(', ', $userStrings), '</br>';
+//10
+$taskForDay = [
+  ['task' => 'Write report', 'status' => 'completed', 'priority' => 'low'],
+  ['task' => 'Call to Jhaxon', 'status' => 'pending', 'priority' => 'high'],
+  ['task' => 'Check mail', 'status' => 'completed', 'priority' => 'low'],
+  ['task' => 'Walk with dog', 'status' => 'completed', 'priority' => 'high'],
+  ['task' => 'Go to library', 'status' => 'pending', 'priority' => 'low'],
+  ['task' => 'Play in CS', 'status' => 'pending', 'priority' => 'high']
+];
+
+foreach($taskForDay as $task) {
+  if($task['status'] === 'pending' || $task['priority'] === 'high') {
+    echo $task['task'] . " - Status: " . $task['status'] . ", Priority: " . $task['priority'] . "</br>";
+  }
+}
